@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  result_id: 
+  survey_id: 
+  survey_question_id: 
+  type_response: MyString
+  response: MyString
+
+two:
+  result_id: 
+  survey_id: 
+  survey_question_id: 
+  type_response: MyString
+  response: MyString

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  survey_question_id: 
+  content: MyString
+  survey_id: 
+  cardinal: 1
+  type_question: MyString
+
+two:
+  survey_question_id: 
+  content: MyString
+  survey_id: 
+  cardinal: 1
+  type_question: MyString

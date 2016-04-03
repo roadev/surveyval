@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  resources :results
+  resources :answers
+  resources :survey_questions
+  resources :surveys
+  resources :consumers
+  resources :results
+  resources :responses
+  resources :survey_questions
+  resources :surveys
+  resources :consumers
+  resources :results
+  resources :responses
+  resources :survey_questions
+  resources :surveys
+  resources :consumers
+  resources :results
+  resources :responses
+  resources :survey_questions
+  resources :surveys
+  resources :consumers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

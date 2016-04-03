@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Consumer:</strong>
+  <%= @consumer.consumer_id %>
+</p>
+
+<p>
+  <strong>Ip address:</strong>
+  <%= @consumer.ip_address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @consumer.email %>
+</p>
+
+<p>
+  <strong>Clave:</strong>
+  <%= @consumer.clave %>
+</p>
+
+<%= link_to 'Edit', edit_consumer_path(@consumer) %> |
+<%= link_to 'Back', consumers_path %>

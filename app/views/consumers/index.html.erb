@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Consumers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Consumer</th>
+      <th>Ip address</th>
+      <th>Email</th>
+      <th>Clave</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @consumers.each do |consumer| %>
+      <tr>
+        <td><%= consumer.consumer_id %></td>
+        <td><%= consumer.ip_address %></td>
+        <td><%= consumer.email %></td>
+        <td><%= consumer.clave %></td>
+        <td><%= link_to 'Show', consumer %></td>
+        <td><%= link_to 'Edit', edit_consumer_path(consumer) %></td>
+        <td><%= link_to 'Destroy', consumer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Consumer', new_consumer_path %>
