@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 2017030403924) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answer", primary_key: "answer_id", force: :cascade do |t|
     t.string   "content"
     t.integer  "survey_question_id"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 2017030403924) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "answer", ["survey_question_id"], name: "index_answer_on_survey_question_id"
+  add_index "answer", ["survey_question_id"], name: "index_answer_on_survey_question_id", using: :btree
 
   create_table "consumer", primary_key: "consumer_id", force: :cascade do |t|
     t.string   "ip_address"
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 2017030403924) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "result", ["survey_id"], name: "index_result_on_survey_id"
-  add_index "result", ["survey_question_id"], name: "index_result_on_survey_question_id"
+  add_index "result", ["survey_id"], name: "index_result_on_survey_id", using: :btree
+  add_index "result", ["survey_question_id"], name: "index_result_on_survey_question_id", using: :btree
 
   create_table "survey", primary_key: "survey_id", force: :cascade do |t|
     t.string   "title"
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 2017030403924) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "survey", ["consumer_id"], name: "index_survey_on_consumer_id"
+  add_index "survey", ["consumer_id"], name: "index_survey_on_consumer_id", using: :btree
 
   create_table "survey_question", primary_key: "survey_question_id", force: :cascade do |t|
     t.string   "content"
@@ -61,6 +64,11 @@ ActiveRecord::Schema.define(version: 2017030403924) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "survey_question", ["survey_id"], name: "index_survey_question_on_survey_id"
+  add_index "survey_question", ["survey_id"], name: "index_survey_question_on_survey_id", using: :btree
 
+  add_foreign_key "answer", "survey_question", primary_key: "survey_question_id"
+  add_foreign_key "result", "survey", primary_key: "survey_id"
+  add_foreign_key "result", "survey_question", primary_key: "survey_question_id"
+  add_foreign_key "survey", "consumer", primary_key: "consumer_id"
+  add_foreign_key "survey_question", "survey", primary_key: "survey_id"
 end

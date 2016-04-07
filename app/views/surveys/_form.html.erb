@@ -21,7 +21,8 @@
   </div>
   <div class="field">
     <%= f.label :consumer_id %><br>
-    <%= f.text_field :consumer_id %>
+    <%= f.collection_select :consumer_id, Consumer.all(), :consumer_id, :email, {:include_blank => 'Please Select A Color'} %>
+
   </div>
   <div class="actions">
     <%= f.submit %>
