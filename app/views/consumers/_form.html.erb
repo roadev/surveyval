@@ -11,21 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :consumer_id %><br>
-    <%= f.text_field :consumer_id %>
-  </div>
+
+
   <div class="field">
     <%= f.label :ip_address %><br>
-    <%= f.text_field :ip_address %>
+    <%= f.text_field :ip_address, :value => request.remote_ip, :readonly => true %>
   </div>
+
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
+    <!-- Modification for Tinymce  -->
+    <!-- f.text_area :email, :class => "tinymce", :rows => 40, :cols => 120  -->
   </div>
   <div class="field">
     <%= f.label :clave %><br>
-    <%= f.text_field :clave %>
+    <%= f.password_field :clave %>
   </div>
   <div class="actions">
     <%= f.submit %>
