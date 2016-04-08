@@ -19,7 +19,7 @@
         <td><%= survey.survey_id %></td>
         <td><%= survey.title %></td>
         <td><%= survey.description %></td>
-        <td><%= survey.consumer %></td>
+        <td><%= survey.consumer.email+' '+survey.consumer.ip_address %></td>
         <td><%= link_to 'Show', survey %></td>
         <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
         <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -11,12 +11,7 @@
     </div>
   <% end %>
 
-
-
-  <div class="field">
-    <%= f.label :ip_address %><br>
-    <%= f.text_field :ip_address, :value => request.remote_ip, :readonly => true %>
-  </div>
+    <%= f.hidden_field :ip_address, :value => request.remote_ip, :readonly => true %>
 
   <div class="field">
     <%= f.label :email %><br>
@@ -25,10 +20,10 @@
     <!-- f.text_area :email, :class => "tinymce", :rows => 40, :cols => 120  -->
   </div>
   <div class="field">
-    <%= f.label :clave %><br>
+    <label for="clave">Password</label>
     <%= f.password_field :clave %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  :class => 'btn' %>
   </div>
 <% end %>

@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+ 
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -20,11 +20,12 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :consumer_id %><br>
-    <%= f.collection_select :consumer_id, Consumer.all(), :consumer_id, :email, {:include_blank => 'Please Select A Color'} %>
-
+      <%= f.label :consumer_id %><br>
+    <div class="input-field col s12">
+    <%= f.hidden_field :consumer_id, :value => "1" %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn' %>
   </div>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017030403924) do
+ActiveRecord::Schema.define(version: 20160408023132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,24 @@ ActiveRecord::Schema.define(version: 2017030403924) do
   end
 
   add_index "survey_question", ["survey_id"], name: "index_survey_question_on_survey_id", using: :btree
+
+  create_table "view", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "view", ["email"], name: "index_view_on_email", unique: true, using: :btree
+  add_index "view", ["reset_password_token"], name: "index_view_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "answer", "survey_question", primary_key: "survey_question_id"
   add_foreign_key "result", "survey", primary_key: "survey_id"
